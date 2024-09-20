@@ -33,8 +33,8 @@ function placeOrder(customerName, orderedItems) {
     }
   }
   
+//function that accepts an order object and calculates the total price of the order by summing the prices of all ordered items.
 
-  // Create calculateOrderTotal function
 function calculateOrderTotal(order) {
     return order.items.reduce((total, item) => {
       const product = inventory.find(p => p.name === item.name);
@@ -42,5 +42,14 @@ function calculateOrderTotal(order) {
     }, 0);
   }
 
-  
+  //function that finds the order with the matching customerName 
+function completeOrder(customerName) {
+    const orderIndex = orders.findIndex(o => o.customerName === customerName);
+    if (orderIndex !== -1) {
+      orders[orderIndex].status = "Completed";
+    } else {
+      console.log(`Error: Order for ${customerName} not found`);
+    }
+  }
+
 
