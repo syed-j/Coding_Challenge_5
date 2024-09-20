@@ -10,3 +10,26 @@ const inventory = [
 // Create an empty array named orders to store customer orders.
 const orders = [];
 
+
+// Function to place an order
+function placeOrder(customerName, orderedItems) {
+    let canPlaceOrder = true;
+    orderedItems.forEach(item => {
+      const product = inventory.find(p => p.name === item.name);
+      if (product && product.quantity >= item.quantity) {
+        product.quantity -= item.quantity;
+      } else {
+        canPlaceOrder = false;
+        console.log(`Error: Insufficient stock for ${item.name}`);
+      }
+    });
+  
+    if (canPlaceOrder) {
+      orders.push({
+        customerName,
+        items: orderedItems,
+        status: "Pending"
+      });
+    }
+  }
+  
