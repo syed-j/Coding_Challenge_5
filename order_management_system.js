@@ -33,3 +33,14 @@ function placeOrder(customerName, orderedItems) {
     }
   }
   
+
+  // Create calculateOrderTotal function
+function calculateOrderTotal(order) {
+    return order.items.reduce((total, item) => {
+      const product = inventory.find(p => p.name === item.name);
+      return total + product.price * item.quantity;
+    }, 0);
+  }
+
+  
+
