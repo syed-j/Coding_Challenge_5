@@ -7,3 +7,6 @@ const inventory = [
     { name: "Monitor", price: 300, quantity: 15 }
 ];
 
+// Create an empty array named orders to store customer orders.
+const orders = [];
+
