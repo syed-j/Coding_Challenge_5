@@ -52,4 +52,13 @@ function completeOrder(customerName) {
     }
   }
 
-
+// Create checkPendingOrders function
+function checkPendingOrders() {
+    console.log("Pending Orders:");
+    orders.forEach(order => {
+      if (order.status === "Pending") {
+        console.log(`Customer: ${order.customerName}, Items: ${order.items.map(item => 
+            `${item.name} (${item.quantity})`).join(", ")}, Total: $${calculateOrderTotal(order)}`);
+      }
+    });
+  }
